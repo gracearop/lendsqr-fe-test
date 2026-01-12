@@ -1,0 +1,114 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+
+  &__left {
+    flex: 1;
+    background: white;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    
+    @include mobile { display: none; }
+
+    .logo-wrapper img { width: 170px; }
+    .illustration-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img { width: 100%; max-width: 600px; }
+    }
+  }
+
+  &__right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
+
+    .login-form {
+      width: 100%;
+      max-width: 450px;
+      padding: 40px;
+
+      h1 { color: #213f7d; font-size: 40px; font-weight: 700; margin-bottom: 10px; }
+      p { color: #545f7d; font-size: 20px; margin-bottom: 60px; }
+
+      .form-group {
+        margin-bottom: 25px;
+        position: relative;
+
+        input {
+          width: 100%;
+          height: 50px;
+          border: 2px solid rgba(84, 95, 125, 0.15);
+          border-radius: 5px;
+          padding: 0 16px;
+          font-size: 14px;
+          color: #545f7d;
+          outline: none;
+          transition: border-color 0.3s ease;
+
+          &:focus { border-color: #39cdcc; }
+        }
+
+        &.password-group {
+          input { padding-right: 60px; }
+          .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #39cdcc;
+            font-size: 12px;
+            font-weight: 600;
+            background: none;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+          }
+        }
+      }
+
+      // Styled specifically for your Negative Test Case
+      .error-message {
+        color: #e4033b; // Lendsqr error red
+        font-size: 12px;
+        margin-top: -15px;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+
+      .forgot-password {
+        display: block;
+        color: #39cdcc;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 30px;
+        &:hover { text-decoration: underline; }
+      }
+
+      .btn-login {
+        width: 100%;
+        height: 48px;
+        background: #39cdcc;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        letter-spacing: 0.1em;
+        transition: opacity 0.3s ease;
+        &:hover { opacity: 0.9; }
+      }
+    }
+  }
+}

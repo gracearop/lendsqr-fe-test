@@ -1,0 +1,94 @@
+@use '../../styles/abstracts/variables' as *;
+
+.sidebar {
+  width: 283px; // Standard Lendsqr width
+  background: #ffffff;
+  height: calc(100vh - 100px); 
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+
+  &__org-switcher {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 30px; // Increased for better spacing
+    cursor: pointer;
+    font-size: 16px;
+    color: #213F7D;
+  }
+
+  &__scroll-area {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 40px;
+
+    /* Custom Scrollbar to match Figma */
+    &::-webkit-scrollbar { width: 4px; }
+    &::-webkit-scrollbar-thumb { background: rgba(33, 63, 125, 0.1); border-radius: 10px; }
+  }
+
+  &__section {
+    margin-top: 30px;
+    
+    &-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #545F7D;
+      padding: 0 30px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 30px;
+    font-size: 16px;
+    color: #213F7D;
+    text-decoration: none;
+    opacity: 0.6;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover { opacity: 1; background: rgba(57, 205, 204, 0.06); }
+
+    // MATCHING THE MODIFIER IN YOUR TSX
+    &--active {
+      opacity: 1 !important;
+      background: rgba(57, 205, 204, 0.06);
+      border-left-color: #39CDCC !important;
+      font-weight: 500;
+    }
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px solid rgba(33, 63, 125, 0.1);
+    margin: 30px 0 10px 0;
+  }
+
+  &__logout {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 30px;
+    cursor: pointer;
+    color: #213F7D;
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    &:hover { opacity: 1; }
+  }
+
+  &__footer {
+    padding: 0 30px 20px;
+    font-size: 12px;
+    color: #213F7D;
+    span { opacity: 0.6; }
+  }
+}

@@ -1,0 +1,45 @@
+@use '../../styles/abstracts/variables' as *;
+
+.table-actions {
+  position: relative; // Anchor for the absolute menu
+
+  .action-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $text-color;
+    padding: 5px;
+    border-radius: 50%;
+    &:hover { background: rgba(0,0,0,0.05); }
+  }
+
+  .action-menu {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    width: 180px;
+    background: white;
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(84, 95, 125, 0.04);
+    border-radius: 4px;
+    padding: 10px 0;
+    z-index: 50;
+
+    .action-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 14px;
+      color: $text-color;
+      font-weight: 500;
+
+      &:hover {
+        background-color: #f9fafb;
+      }
+
+      span { white-space: nowrap; }
+    }
+  }
+}

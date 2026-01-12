@@ -1,0 +1,31 @@
+// Brand Colors
+$primary-blue: #213F7D;
+$secondary-teal: #39CDCC;
+
+// Text Colors
+$text-color: #545F7D;
+$text-light: rgba(84, 95, 125, 0.7);
+
+// Backgrounds
+$bg-light: #FBFBFB;
+$white: #FFFFFF;
+
+// Shadows & Borders
+$shadow-card: 3px 5px 20px rgba(0, 0, 0, 0.04);
+$border-light: rgba(33, 63, 125, 0.1);
+
+// Typography
+$font-main: 'Work Sans', sans-serif;
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  border-left: 3px solid transparent; // Hidden by default
+  opacity: 0.6;
+
+  &.active {
+    border-left-color: $secondary-teal;
+    background-color: rgba(57, 205, 204, 0.06);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,104 @@
+@use '../../styles/abstracts/variables' as *;
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  height: 100px; // Fixed height is better for layout math
+  background: white;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  &__logo-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    min-width: 250px; // Matches sidebar width for alignment
+
+    .logo { width: 140px; }
+  }
+
+  &__search-container {
+    flex: 1;
+    display: flex;
+    justify-content: center; // THIS CENTERS THE SEARCH BAR
+
+    .search-bar {
+      display: flex;
+      width: 100%;
+      max-width: 400px;
+      
+      input {
+        flex: 1;
+        height: 40px;
+        border: 1px solid rgba(84, 95, 125, 0.15);
+        border-right: none;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        padding: 0 15px;
+        outline: none;
+        &::placeholder { color: rgba(84, 95, 125, 0.7); }
+      }
+
+      .search-btn {
+        width: 56px;
+        height: 40px;
+        background: #39CDCC; // secondary-teal
+        border: none;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    min-width: 300px;
+    justify-content: flex-end;
+
+    .docs-link {
+      color: #213F7D;
+      text-decoration: none;
+      font-size: 16px;
+      &:hover { text-decoration: underline; }
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      
+      img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+      .user-name { color: #213F7D; font-weight: 500; font-size: 16px; }
+      .dropdown-icon { font-size: 8px; color: #213F7D; }
+    }
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    span {
+      display: block; width: 24px; height: 2px;
+      background-color: #213F7D; border-radius: 2px;
+    }
+
+    @media (max-width: 1024px) { display: flex; }
+  }
+}

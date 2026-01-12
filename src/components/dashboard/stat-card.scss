@@ -1,0 +1,60 @@
+@use '../../styles/abstracts/variables' as *;
+
+.stat-card {
+  background: $white;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: $shadow-card;
+  border-radius: 4px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px); // Subtle "Senior" touch for interactivity
+  }
+
+  &__icon-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+
+    // Specific colors based on the Figma design
+    &--pink {
+      background-color: rgba(223, 24, 255, 0.1);
+    }
+    &--purple {
+      background-color: rgba(87, 24, 255, 0.1);
+    }
+    &--orange {
+      background-color: rgba(245, 95, 68, 0.1);
+    }
+    &--red {
+      background-color: rgba(255, 51, 102, 0.1);
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    color: $text-color;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  &__count {
+    font-size: 24px;
+    font-weight: 600;
+    color: $primary-blue;
+    margin: 0;
+  }
+}

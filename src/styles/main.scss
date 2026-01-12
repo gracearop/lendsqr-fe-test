@@ -1,0 +1,20 @@
+// 1. Abstracts - Use 'as *' to make variables available without a prefix
+@use './abstracts/variables' as *;
+@use './abstracts/mixins' as *;
+
+// 2. Base
+@use './base/reset';
+@use './base/typography';
+
+// 3. Global App Styles
+body {
+  background-color: $bg-light; 
+  font-family: $font-main;
+  color: $text-color;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+// 4. Layouts & Pages
+// Components will import their own local .scss files
+

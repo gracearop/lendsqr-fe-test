@@ -1,0 +1,37 @@
+@use '../styles/abstracts/variables' as *;
+
+.users-page {
+  padding: 10px 0;
+
+  .page-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: $primary-blue;
+    margin-bottom: 40px;
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    margin-bottom: 40px;
+
+    // Responsive design for tablets
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Responsive design for mobile
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Ensure the table doesn't overflow the main content area
+  .table-container {
+    margin-top: 20px;
+    width: 100%;
+    overflow-x: auto;
+  }
+}
