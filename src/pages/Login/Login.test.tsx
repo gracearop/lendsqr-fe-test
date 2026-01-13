@@ -1,4 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, test, expect } from 'vitest';
+import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
 import Login from './Login';
 import { vi } from 'vitest'; // or jest

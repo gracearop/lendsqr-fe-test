@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserStatus } from '../../types/models'; // The enum we made earlier
+import type { UserStatus } from '../../types/models'; // The enum we made earlier
 import './status-badge.scss';
 
 interface StatusBadgeProps {

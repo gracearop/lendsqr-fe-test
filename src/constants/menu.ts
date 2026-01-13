@@ -7,8 +7,6 @@ import {
   HandCoins, 
   PiggyBank, 
   UsersRound, 
-  Coins, 
-  FileText, 
   Percent,
   SlidersHorizontal,
   ShieldCheck 

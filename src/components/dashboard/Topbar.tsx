@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Bell, Menu } from 'lucide-react'; // Added Menu icon for better accessibility
+import { Search, Bell} from 'lucide-react'; // Added Menu icon for better accessibility
 import logo from '../../assets/logo.png';
 import avatar from '../../assets/avatar.png';
 import './topbar.scss';

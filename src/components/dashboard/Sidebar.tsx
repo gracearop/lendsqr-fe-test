@@ -4,17 +4,6 @@ import {
   Briefcase, 
   ChevronDown, 
   Home, 
-  Users,       // Use this for "Users"
-  UserCheck,   // Use this for "Guarantors" or "Active Users"
-  Handshake, 
-  PiggyBank, 
-  HandCoins, 
-  UserRoundX,  // Better name for "Blacklisted"
-  ScrollText, 
-  BarChart3, 
-  SlidersHorizontal, 
-  BadgePercent, 
-  ClipboardList,
   LogOut
 } from 'lucide-react';
 import { sidebarMenu } from '../../constants/menu'; // Ensure this array exists

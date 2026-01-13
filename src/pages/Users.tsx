@@ -15,9 +15,10 @@ const UsersPage: React.FC = () => {
     totalUsers,
     totalPages,
     currentPage, 
+    setItemsPerPage, // Get setter from hook
     goToPage,
     updateFilter, 
-    resetFilters  
+    resetFilters,  
   } = useUsers(usersData);
 
   // 2. Data Logic for the Stat Cards
@@ -81,6 +82,7 @@ const UsersPage: React.FC = () => {
         totalPages={totalPages}
         itemsPerPage={10}
         onPageChange={goToPage}
+        onItemsPerPageChange={(num) => setItemsPerPage(num)}
       />
     </div>
   );

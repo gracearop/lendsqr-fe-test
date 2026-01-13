@@ -1,3 +1,4 @@
+// src/hooks/useUsers.ts
 import { useState, useMemo } from 'react';
 import type { User } from '../types/models';
 
@@ -10,18 +11,21 @@ export interface FilterCriteria {
   status?: string;
 }
 
-export const useUsers = (users: User[], itemsPerPage = 10) => {
+export const useUsers = (users: User[], initialItemsPerPage = 10) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(initialItemsPerPage);
   const [filters, setFilters] = useState<FilterCriteria>({});
 
+  // 1. Filtering Logic
   const filteredUsers = useMemo(() => {
     return users.filter((user) => {
       return Object.entries(filters).every(([key, value]) => {
         if (!value) return true;
-        
-        // Use type assertion safely
+
+        // Use key mapping if the filter keys don't match the model keys exactly
+        // Otherwise, access the user object dynamically
         const userValue = user[key as keyof User];
-        
+
         if (typeof userValue === 'string') {
           return userValue.toLowerCase().includes(value.toLowerCase());
         }
@@ -30,6 +34,7 @@ export const useUsers = (users: User[], itemsPerPage = 10) => {
     });
   }, [users, filters]);
 
+  // 2. Pagination Logic
   const paginatedUsers = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     return filteredUsers.slice(startIndex, startIndex + itemsPerPage);
@@ -37,11 +42,19 @@ export const useUsers = (users: User[], itemsPerPage = 10) => {
 
   const totalPages = Math.ceil(filteredUsers.length / itemsPerPage);
 
-  const goToPage = (page: number) => setCurrentPage(page);
+  // 3. Action Handlers
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const changeItemsPerPage = (num: number) => {
+    setItemsPerPage(num);
+    setCurrentPage(1); // Always reset to page 1 when changing entries count
+  };
 
   const updateFilter = (newFilters: FilterCriteria) => {
-    setFilters(newFilters); // Replaces filters with new criteria
-    setCurrentPage(1);
+    setFilters(newFilters);
+    setCurrentPage(1); // Reset to page 1 when applying new filters
   };
 
   const resetFilters = () => {
@@ -54,8 +67,10 @@ export const useUsers = (users: User[], itemsPerPage = 10) => {
     totalUsers: filteredUsers.length,
     currentPage,
     totalPages,
+    itemsPerPage,
+    setItemsPerPage: changeItemsPerPage,
     goToPage,
     updateFilter,
-    resetFilters
+    resetFilters,
   };
 };

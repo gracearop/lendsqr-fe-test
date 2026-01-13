@@ -1,4 +1,6 @@
 // src/types/models.ts
+export type UserStatus = 'Active' | 'Inactive' | 'Pending' | 'Blacklisted';
+
 
 export interface User {
   id: string;

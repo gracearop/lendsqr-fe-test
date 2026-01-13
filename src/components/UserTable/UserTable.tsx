@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Filter, MoreVertical } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import FilterForm from '../FilterForm/FilterForm'; // Make sure this path is correct
 import TableActions from './TableActions'; // Make sure this path is correct
