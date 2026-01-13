@@ -27,12 +27,12 @@ const Login: React.FC = () => {
   return (
     <div className="login-container">
       <div className="login-container__left">
-        <div className="logo-wrapper">
-          <img src={logo} alt="Lendsqr Logo" />
-        </div>
-        <div className="illustration-wrapper">
-          <img src={loginImage} alt="Login Illustration" />
-        </div>
+      <div className="logo-wrapper">
+        <img src={logo} alt="Lendsqr Logo" loading="eager" />
+      </div>
+      <div className="illustration-wrapper">
+        <img src={loginImage} alt="Login Illustration" loading="eager" />
+</div>
       </div>
 
       <div className="login-container__right">
